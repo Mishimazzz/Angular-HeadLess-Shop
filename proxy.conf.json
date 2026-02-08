@@ -1,0 +1,7 @@
+{
+  "/wp-json": {
+    "target": "http://angular-woo-headless.local",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

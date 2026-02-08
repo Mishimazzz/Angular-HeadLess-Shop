@@ -1,12 +1,28 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductService } from './services/product';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('angular-headless-shop');
+export class AppComponent implements OnInit {
+  products: any[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+  console.log('AppComponent init');
+
+  this.productService.getProducts().subscribe(data => {
+    console.log('products:', data);
+    this.products = data;
+  });
 }
+
+}
+
+
