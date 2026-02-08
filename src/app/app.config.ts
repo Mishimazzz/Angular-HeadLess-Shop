@@ -7,6 +7,6 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient() // 允许你在任何地方用 HttpClient 发请求
   ]
 };
